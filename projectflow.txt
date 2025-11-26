@@ -1,0 +1,15 @@
+1. Create the project template by executing template.py file
+2. Create a pyproject.toml file
+3. Create a virtual environment, activate it and install the dependencies
+
+----------------------------------------------- MongoDB Setup -----------------------------------------------
+4. Sign up to MongoDB Atlas and create a new project by just providing it a name then next next create.
+5. From "Create a cluster" screen, hit "create", Select M0 service keeping other services as default, hit "create deployment"
+6. Setup the username and password and then create DB user.
+7. Go to "network access" and add ip address - "0.0.0.0/0" so that we can access it from anywhere
+8. Go back to project >> "Get Connection String" >> "Drivers" >> {Driver:Python, Version:3.6 or later} 
+   >> copy and save the connection string with you(replace password). >> Done.
+9. Create folder "notebook" >> do step 11 >>  create file "mongoDB_demo.ipynb" >> select kernal>python kernal>vehicle>>
+10. Dataset added to notebook folder
+11. Push your data to mongoDB database from your python notebook.
+12. Go to mongoDB Atlas >> Database >> browse collection >> see your data in key value format

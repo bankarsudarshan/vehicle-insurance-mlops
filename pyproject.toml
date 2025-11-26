@@ -1,0 +1,27 @@
+[project]
+name = "src"
+version = "0.0.1"
+description = "An MLOps project for productionizing models"
+readme = "README.md"
+authors = [
+  { name="Sudarshan Bankar", email="sudarshanbankar22@gmail.com" },
+]
+license = { text = "MIT" }
+dependencies = ["pandas", "numpy", "matplotlib", "plotly", "seaborn", "scikit-learn", "pymongo", "from_root", "dill", "certifi", "PyYAML", "boto3", "mypy-boto3-s3", "botocore", "fastapi", "python-multipart", "uvicorn", "jinja2", "imblearn"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/bankarsudarshan/vehicle-insurance-mlops"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+  "src/**",
+]
