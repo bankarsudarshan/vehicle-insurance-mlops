@@ -13,3 +13,8 @@
 10. Dataset added to notebook folder
 11. Push your data to mongoDB database from your python notebook.
 12. Go to mongoDB Atlas >> Database >> browse collection >> see your data in key value format
+
+-------------------------------------- logging, exception and notebooks --------------------------------------
+13. Write the logger file and test it on demo.py
+14. Write the exception file and test it on demo.py
+15. EDA and Feature Engg notebook added.
