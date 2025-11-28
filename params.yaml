@@ -1,0 +1,10 @@
+data_ingestion:
+  database_name: VehicleInsurance
+  collection_name: VehicleData
+  train_test_split_ratio: 0.25
+  dir_name: data_ingestion
+  feature_store_dir: feature_store
+  ingested_dir: ingested
+  raw_data_file: raw_data.csv
+  train_file: train.csv
+  test_file: test.csv

@@ -1,0 +1,4 @@
+[core]
+    remote = artifacts_s3
+['remote "artifacts_s3"']
+    url = s3://vehicle-inssurance-artifacts-storages

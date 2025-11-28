@@ -20,7 +20,7 @@
 15. EDA and Feature Engg notebook added.
 
 ----------------------------------------------- Data Ingestion -----------------------------------------------
-17. Before we work on "Data Ingestion" component >> Declare variables within constants.__init__.py file >> 
+16. Before we work on "Data Ingestion" component >> Declare variables within constants.__init__.py file >> 
     add code to configuration.mongo_db_connections.py file and define the func for mondodb connection >> 
     Inside "data_access" folder, add code to proj1_data that will use mongo_db_connections.py
     to connect with DB, fetch data in key-val format and transform that to df >>
@@ -28,14 +28,22 @@
     add code to entity.artifact_entity.py file till DataIngestionArtifact class >>
     add code to components.data_ingestion.py file >> add code to training pipeline >> 
     run demo.py (set mongodb connection url first, see next step)
-18. To setup the connection url on mac(also work for windows), open bash/powershell terminal and run below command:
-                        *** For Bash ***
+17. To setup the connection url, open terminal and run below command:
     set: export MONGODB_URL="mongodb+srv://<username>:<password>......"
     check: echo $MONGODB_URL
-                        *** For Powershell ***
-    set: $env:MONGODB_URL = "mongodb+srv://<username>:<password>......"
-    check: echo $env:MONGODB_URL
-
-    To setup the connection url on Windows, open env variable setting option and add a new variable:
-    Name: MONGODB_URL, Value = <url>
     Also add "artifact" dir to .gitignore file
+
+----------------------------------------------- DVC Tracking -----------------------------------------------
+18. First of all remove the Timestamp logic from src.entity.config_entity.py that creates a new folder inside the `artifacts/` folder everytime we run the pipeline. Because, DVC is going to do the versioning for us now.
+19. do a `dvc init`
+20. add the s3 remote `dvc remote add artifacts_s3 s3://vehicle-inssurance-artifacts-storages`
+21. now that the remote is set, you should tell dvc what it has to track from our local storage which eventually it will push onto the remote. the dvc.yaml and params.yaml files will do this job
+22. add code to src.utils.main_utils.py that reads parameters from params.yaml
+23. create params.yaml -> add the data_ingestion stage to it -> add the different parameters associated with data_ingestion component (like train_test_split_ration, from where to collect the data and where to store the artifacts of this stage) to this stage.
+24. remove the redindant constants from src.constants that you have added as parameters to params.yaml
+25. make some associated changes in the src.entity.config_entity.py to also read the values from params.yaml and not just src.constants
+26. Now we'll add THE dvc.yaml file
+    This file will specify the command to run the stage, the dependencies and the outputs
+    Add a main file in the source folder with the same code as in main.py in this repo
+    The TrainPipeline.run() method seems to have become of no use with this. But we'll keep it.
+27. `dvc repro`
