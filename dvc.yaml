@@ -31,3 +31,16 @@ stages:
       - artifacts/data_transformation/transformed_data/train.npy
       - artifacts/data_transformation/transformed_data/test.npy
       - artifacts/data_transformation/transformation_objects/preprocessing.pkl
+
+  model_trainer:
+    cmd: python main.py model_trainer
+    deps:
+      - src/components/data_ingestion.py
+      - src/components/data_validation.py
+      - src/components/data_transformation.py
+      - src/components/model_trainer.py
+    params:
+      - model_trainer.model_params
+      - model_trainer.expected_score
+    outs:
+      - artifacts/model_trainer/trained_model/model.pkl

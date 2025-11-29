@@ -61,8 +61,8 @@ stages:
       size: 4121
     - path: src/components/data_transformation.py
       hash: md5
-      md5: 993d93c4f0ab96356e72a90fc774a62b
-      size: 8637
+      md5: c447e01ad84596dc1bf057dbb9bd6f6c
+      size: 8646
     - path: src/components/data_validation.py
       hash: md5
       md5: e5bbd8cb7cf8118c0bfd06a33c3d2049
@@ -79,5 +79,39 @@ stages:
       size: 9146816
     - path: artifacts/data_transformation/transformed_data/train.npy
       hash: md5
-      md5: 2fe3d9d4d57551246ce9d188b3a407d3
-      size: 35943680
+      md5: bdbdc4e997fcc9f64f63a38e4a95089f
+      size: 35903744
+  model_trainer:
+    cmd: python main.py model_trainer
+    deps:
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: ad47e40f824fd96803a41cf66ccaa933
+      size: 4121
+    - path: src/components/data_transformation.py
+      hash: md5
+      md5: c447e01ad84596dc1bf057dbb9bd6f6c
+      size: 8646
+    - path: src/components/data_validation.py
+      hash: md5
+      md5: e5bbd8cb7cf8118c0bfd06a33c3d2049
+      size: 5983
+    - path: src/components/model_trainer.py
+      hash: md5
+      md5: fd42be6af6b88b83b92a78ca35208292
+      size: 5057
+    params:
+      params.yaml:
+        model_trainer.expected_score: 0.6
+        model_trainer.model_params:
+          n_estimators: 200
+          min_samples_split: 7
+          min_samples_leaf: 6
+          max_depth: 10
+          criterion: entropy
+          random_state: 42
+    outs:
+    - path: artifacts/model_trainer/trained_model/model.pkl
+      hash: md5
+      md5: 6548d012ce4ffbbd462491d7b950c5a6
+      size: 9386951

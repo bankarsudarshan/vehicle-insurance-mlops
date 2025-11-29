@@ -164,14 +164,14 @@ class DataTransformation:
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
             logging.info("feature-target concatenation done for train-test df.")
 
-            save_object(self.data_transformation_config.transformed_object_file_path, preprocessor)
+            save_object(self.data_transformation_config.transformation_object_file_path, preprocessor)
             save_numpy_array_data(self.data_transformation_config.transformed_train_file_path, array=train_arr)
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path, array=test_arr)
             logging.info("Saved transformation object and transformed files.")
 
             logging.info("Data transformation completed successfully")
             return DataTransformationArtifact(
-                transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
+                transformation_object_file_path=self.data_transformation_config.transformation_object_file_path,
                 transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path
             )

@@ -31,3 +31,10 @@ DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 TRANSFORMED_DATA_DIR: str = "transformed_data"
 TRANSFORMATION_OBJECTS_DIR: str = "transformation_objects"
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
+
+"""
+Model Trainer related constants
+"""
+MODEL_TRAINER_DIR_NAME: str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"
