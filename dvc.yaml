@@ -5,12 +5,20 @@ stages:
       - src/components/data_ingestion.py
       - src/configuration/mongodb_connection.py
       - src/data_access/mongodb_data.py
-      - src/constants/__init__.py
       - src/entity/config_entity.py
     params:
-      - data_ingestion.collection_name
       - data_ingestion.train_test_split_ratio
+      - data_ingestion.random_state
     outs:
       - artifacts/data_ingestion/feature_store/raw_data.csv
       - artifacts/data_ingestion/ingested/train.csv
       - artifacts/data_ingestion/ingested/test.csv
+
+  data_validation:
+    cmd: python main.py data_validation
+    deps:
+      - src/components/data_ingestion.py
+      - src/constants/__init__.py
+      - src/entity/config_entity.py
+    outs:
+      - artifacts/data_validation/validation_report.json

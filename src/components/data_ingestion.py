@@ -11,7 +11,7 @@ from src.exception import MyException
 from src.logger import logging
 
 class DataIngestion:
-    def __init__(self,data_ingestion_config: DataIngestionConfig = DataIngestionConfig()):
+    def __init__(self,data_ingestion_config: DataIngestionConfig):
         """
         :param data_ingestion_config: configuration for data ingestion
         """

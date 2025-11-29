@@ -5,27 +5,23 @@ stages:
     deps:
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: 122b6688e965cc9c3e69275175fa4d57
-      size: 4145
+      md5: ad47e40f824fd96803a41cf66ccaa933
+      size: 4121
     - path: src/configuration/mongodb_connection.py
       hash: md5
       md5: 946d9595a7dafde24184ffc3725ca9b2
       size: 2403
-    - path: src/constants/__init__.py
-      hash: md5
-      md5: 8579d2202b6c8b0900b05fc662a758c4
-      size: 56
     - path: src/data_access/mongodb_data.py
       hash: md5
       md5: f29992beb3cd464b0f1001e8d2e4ab3b
       size: 1542
     - path: src/entity/config_entity.py
       hash: md5
-      md5: f28ab0ca07846f98254e876bbd340bd6
-      size: 1399
+      md5: f36ec05410b79474668c30895fe123b3
+      size: 1666
     params:
       params.yaml:
-        data_ingestion.collection_name: VehicleData
+        data_ingestion.random_state: 42
         data_ingestion.train_test_split_ratio: 0.25
     outs:
     - path: artifacts/data_ingestion/feature_store/raw_data.csv
@@ -40,3 +36,23 @@ stages:
       hash: md5
       md5: a024e7f88fe2beaee673064ed1c27428
       size: 21303004
+  data_validation:
+    cmd: python main.py data_validation
+    deps:
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: ad47e40f824fd96803a41cf66ccaa933
+      size: 4121
+    - path: src/constants/__init__.py
+      hash: md5
+      md5: a40d891477ab23b5a6be23a937f09f39
+      size: 733
+    - path: src/entity/config_entity.py
+      hash: md5
+      md5: f36ec05410b79474668c30895fe123b3
+      size: 1666
+    outs:
+    - path: artifacts/data_validation/validation_report.json
+      hash: md5
+      md5: 6f25d5723ae6d95d2bf541b93eed1637
+      size: 52
