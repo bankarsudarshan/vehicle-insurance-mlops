@@ -11,14 +11,23 @@ Data Ingestion related constants
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 DATA_INGESTION_INGESTED_DIR: str = "ingested"
-DATA_INGESTION_RAW_DATA_FILE_NAME: str = "raw_data.csv"
-DATA_INGESTION_TRAIN_FILE_NAME: str = "train.csv"
-DATA_INGESTION_TEST_FILE_NAME: str = "test.csv"
+RAW_DATA_FILE_NAME: str = "raw_data.csv"
+TRAIN_FILE_NAME: str = "train.csv"
+TEST_FILE_NAME: str = "test.csv"
 
 """
-Data Validation realted contants
+Data Validation related contants
 """
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 DATA_VALIDATION_DIR_NAME: str = "data_validation"
 DATA_VALIDATION_SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 DATA_VALIDATION_REPORT_FILE_NAME: str = "validation_report.json"
+
+"""
+Data Transformation related constants
+"""
+TARGET_COLUMN: str = "Response"
+DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
+TRANSFORMED_DATA_DIR: str = "transformed_data"
+TRANSFORMATION_OBJECTS_DIR: str = "transformation_objects"
+PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"

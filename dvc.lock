@@ -43,16 +43,41 @@ stages:
       hash: md5
       md5: ad47e40f824fd96803a41cf66ccaa933
       size: 4121
-    - path: src/constants/__init__.py
+    - path: src/components/data_validation.py
       hash: md5
-      md5: a40d891477ab23b5a6be23a937f09f39
-      size: 733
-    - path: src/entity/config_entity.py
-      hash: md5
-      md5: f36ec05410b79474668c30895fe123b3
-      size: 1666
+      md5: e5bbd8cb7cf8118c0bfd06a33c3d2049
+      size: 5983
     outs:
     - path: artifacts/data_validation/validation_report.json
       hash: md5
       md5: 6f25d5723ae6d95d2bf541b93eed1637
       size: 52
+  data_transformation:
+    cmd: python main.py data_transformation
+    deps:
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: ad47e40f824fd96803a41cf66ccaa933
+      size: 4121
+    - path: src/components/data_transformation.py
+      hash: md5
+      md5: 993d93c4f0ab96356e72a90fc774a62b
+      size: 8637
+    - path: src/components/data_validation.py
+      hash: md5
+      md5: e5bbd8cb7cf8118c0bfd06a33c3d2049
+      size: 5983
+    outs:
+    - path: 
+        artifacts/data_transformation/transformation_objects/preprocessing.pkl
+      hash: md5
+      md5: a7a628b7730636ed932cf86ecc68717c
+      size: 2301
+    - path: artifacts/data_transformation/transformed_data/test.npy
+      hash: md5
+      md5: 86164d771c8b76169a31148d8bbc1893
+      size: 9146816
+    - path: artifacts/data_transformation/transformed_data/train.npy
+      hash: md5
+      md5: 2fe3d9d4d57551246ce9d188b3a407d3
+      size: 35943680

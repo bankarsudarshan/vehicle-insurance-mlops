@@ -24,17 +24,17 @@ class DataIngestionConfig:
     feature_store_file_path: str = os.path.join(
         data_ingestion_dir, 
         DATA_INGESTION_FEATURE_STORE_DIR,
-        DATA_INGESTION_RAW_DATA_FILE_NAME
+        RAW_DATA_FILE_NAME
     )
     training_file_path: str = os.path.join(
         data_ingestion_dir, 
         DATA_INGESTION_INGESTED_DIR,
-        DATA_INGESTION_TRAIN_FILE_NAME
+        TRAIN_FILE_NAME
     )
     testing_file_path: str = os.path.join(
         data_ingestion_dir, 
         DATA_INGESTION_INGESTED_DIR,
-        DATA_INGESTION_TEST_FILE_NAME
+        TEST_FILE_NAME
     )
     database_name: str = params['data_ingestion']['database_name']
     collection_name: str = params['data_ingestion']['collection_name']
@@ -51,4 +51,26 @@ class DataValidationConfig:
     validation_report_file_path: str = os.path.join(
         data_validation_dir,
         DATA_VALIDATION_REPORT_FILE_NAME
+    )
+
+@dataclass
+class DataTransformationConfig:
+    data_transformation_dir: str = os.path.join(
+        training_pipeline_config.artifacts_dir,
+        DATA_TRANSFORMATION_DIR_NAME
+    )
+    transformed_train_file_path: str = os.path.join(
+        data_transformation_dir,
+        TRANSFORMED_DATA_DIR,
+        TRAIN_FILE_NAME.replace("csv", "npy")
+    )
+    transformed_test_file_path: str = os.path.join(
+        data_transformation_dir,
+        TRANSFORMED_DATA_DIR,
+        TEST_FILE_NAME.replace("csv", "npy")
+    )
+    transformed_object_file_path: str = os.path.join(
+        data_transformation_dir,
+        TRANSFORMATION_OBJECTS_DIR,
+        PREPROCSSING_OBJECT_FILE_NAME
     )

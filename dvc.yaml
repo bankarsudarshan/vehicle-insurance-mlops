@@ -5,7 +5,6 @@ stages:
       - src/components/data_ingestion.py
       - src/configuration/mongodb_connection.py
       - src/data_access/mongodb_data.py
-      - src/entity/config_entity.py
     params:
       - data_ingestion.train_test_split_ratio
       - data_ingestion.random_state
@@ -18,7 +17,17 @@ stages:
     cmd: python main.py data_validation
     deps:
       - src/components/data_ingestion.py
-      - src/constants/__init__.py
-      - src/entity/config_entity.py
+      - src/components/data_validation.py
     outs:
       - artifacts/data_validation/validation_report.json
+
+  data_transformation:
+    cmd: python main.py data_transformation
+    deps:
+      - src/components/data_ingestion.py
+      - src/components/data_validation.py
+      - src/components/data_transformation.py
+    outs:
+      - artifacts/data_transformation/transformed_data/train.npy
+      - artifacts/data_transformation/transformed_data/test.npy
+      - artifacts/data_transformation/transformation_objects/preprocessing.pkl

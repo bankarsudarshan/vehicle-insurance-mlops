@@ -6,10 +6,6 @@ from src.entity.artifact_entity import (
     DataIngestionArtifact,
     DataValidationArtifact
 )
-from src.entity.config_entity import (
-    DataIngestionConfig,
-    DataValidationConfig
-)
 
 if __name__ == "__main__":
     try:
@@ -18,6 +14,7 @@ if __name__ == "__main__":
 
         data_ingestion_artifact = None
         data_validation_artifact = None
+        data_transformation_artifact = None
 
         if stage_name == 'data_ingestion':
             logging.info(f">>>>>> Stage {stage_name} started <<<<<<")
@@ -32,6 +29,25 @@ if __name__ == "__main__":
                 )
             logging.info(f">>>>>> Stage {stage_name} started <<<<<<")
             data_validation_artifact = pipeline.start_data_validation(data_ingestion_artifact)
+            logging.info(f">>>>>> Stage {stage_name} completed <<<<<<\n\nx==========x")
+            
+        elif stage_name == 'data_transformation':
+            if data_ingestion_artifact is None:
+                data_ingestion_artifact = DataIngestionArtifact(
+                    train_file_path='artifacts/data_ingestion/ingested/train.csv',
+                    test_file_path='artifacts/data_ingestion/ingested/test.csv',
+                )
+            if data_validation_artifact is None:
+                data_validation_artifact = DataValidationArtifact(
+                    validation_status = True,
+                    message = "Dummy validation artifact",
+                    report_file_path= "iski real value ki koi jarurat nahi hai shayad"
+                )
+            logging.info(f">>>>>> Stage {stage_name} started <<<<<<")
+            data_transformation_artifact = pipeline.start_data_transformation(
+                data_ingestion_artifact,
+                data_validation_artifact
+            )
             logging.info(f">>>>>> Stage {stage_name} completed <<<<<<\n\nx==========x")
 
     except Exception as e:
