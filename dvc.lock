@@ -5,24 +5,24 @@ stages:
     deps:
     - path: src/components/data_ingestion.py
       hash: md5
-      md5: b4bb606f1e91bb6ae12ecd12d70cb368
-      size: 4255
+      md5: 122b6688e965cc9c3e69275175fa4d57
+      size: 4145
     - path: src/configuration/mongodb_connection.py
       hash: md5
-      md5: d8f96455a8b8292f8cb731b70834fff1
-      size: 2411
+      md5: 946d9595a7dafde24184ffc3725ca9b2
+      size: 2403
     - path: src/constants/__init__.py
       hash: md5
-      md5: b34bcec77c0c85f15fa5b731fe485e30
-      size: 122
+      md5: 8579d2202b6c8b0900b05fc662a758c4
+      size: 56
     - path: src/data_access/mongodb_data.py
       hash: md5
-      md5: d6b3aaf2e257f0568e72b06cdde3c6ce
-      size: 1767
+      md5: f29992beb3cd464b0f1001e8d2e4ab3b
+      size: 1542
     - path: src/entity/config_entity.py
       hash: md5
-      md5: 14fd8def5053ee17f4de5f80da70e95c
-      size: 1299
+      md5: f28ab0ca07846f98254e876bbd340bd6
+      size: 1399
     params:
       params.yaml:
         data_ingestion.collection_name: VehicleData
@@ -34,9 +34,9 @@ stages:
       size: 28403425
     - path: artifacts/data_ingestion/ingested/test.csv
       hash: md5
-      md5: 44f2701cfff714daa40fcbecb5785c01
-      size: 7100769
+      md5: 4558907f618a1d83f4f75c689f611b16
+      size: 7100563
     - path: artifacts/data_ingestion/ingested/train.csv
       hash: md5
-      md5: 45472b5eb20e5ac9192b893cb57df666
-      size: 21302798
+      md5: a024e7f88fe2beaee673064ed1c27428
+      size: 21303004

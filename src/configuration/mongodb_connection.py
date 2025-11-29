@@ -44,9 +44,9 @@ class MongoDBClient:
         try:
             # Check if a MongoDB client connection has already been established; if not, create a new one
             if MongoDBClient.client is None:
-                mongo_db_url = os.getenv("MONGODB_URL_KEY")  # Retrieve MongoDB URL from environment variables
+                mongo_db_url = os.getenv("MONGODB_URL")  # Retrieve MongoDB URL from environment variables
                 if mongo_db_url is None:
-                    raise Exception(f"Environment variable 'MONGODB_URL_KEY' is not set.")
+                    raise Exception(f"Environment variable 'MONGODB_URL' is not set.")
                 
                 # Establish a new MongoDB client connection
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)

@@ -8,3 +8,4 @@ data_ingestion:
   raw_data_file: raw_data.csv
   train_file: train.csv
   test_file: test.csv
+  random_state: 42
