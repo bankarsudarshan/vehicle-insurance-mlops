@@ -37,4 +37,4 @@ Model Trainer related constants
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
-MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"
+TRAINED_MODEL_NAME: str = "model.pkl"

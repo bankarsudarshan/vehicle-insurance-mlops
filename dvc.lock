@@ -15,10 +15,6 @@ stages:
       hash: md5
       md5: f29992beb3cd464b0f1001e8d2e4ab3b
       size: 1542
-    - path: src/entity/config_entity.py
-      hash: md5
-      md5: f36ec05410b79474668c30895fe123b3
-      size: 1666
     params:
       params.yaml:
         data_ingestion.random_state: 42
@@ -98,8 +94,8 @@ stages:
       size: 5983
     - path: src/components/model_trainer.py
       hash: md5
-      md5: fd42be6af6b88b83b92a78ca35208292
-      size: 5057
+      md5: bc7e3114536e49b79a4cadc834e476ad
+      size: 4717
     params:
       params.yaml:
         model_trainer.expected_score: 0.6

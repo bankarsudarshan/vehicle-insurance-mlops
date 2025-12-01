@@ -84,7 +84,7 @@ class ModelTrainerConfig:
     trained_model_file_path: str = os.path.join(
         model_trainer_dir,
         MODEL_TRAINER_TRAINED_MODEL_DIR,
-        MODEL_TRAINER_TRAINED_MODEL_NAME
+        TRAINED_MODEL_NAME
     )
     expected_accuracy: float = params['model_trainer']['expected_score']
     params = params['model_trainer']['model_params']

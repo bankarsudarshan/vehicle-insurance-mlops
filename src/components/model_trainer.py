@@ -37,14 +37,7 @@ class ModelTrainer:
             logging.info("train-test split done.")
 
             params = self.model_trainer_config.params
-            model = RandomForestClassifier(
-                n_estimators = params['n_estimators'],
-                min_samples_split = params['min_samples_split'],
-                min_samples_leaf = params['min_samples_leaf'],
-                max_depth = params['max_depth'],
-                criterion = params['criterion'],
-                random_state = params['random_state']
-            )
+            model = RandomForestClassifier(**params)
             logging.info("RandomForestClassifier model initialized")
 
             logging.info("Model training started...")
