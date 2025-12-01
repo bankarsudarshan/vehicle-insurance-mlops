@@ -84,7 +84,13 @@ class ModelTrainerConfig:
     trained_model_file_path: str = os.path.join(
         model_trainer_dir,
         MODEL_TRAINER_TRAINED_MODEL_DIR,
-        TRAINED_MODEL_NAME
+        TRAINED_MODEL_FILE_NAME
     )
     expected_accuracy: float = params['model_trainer']['expected_score']
     params = params['model_trainer']['model_params']
+
+@dataclass
+class ModelEvaluationConfig:
+    changed_threshold_score: float = params['model_evaluation']['changed_threshold_score']
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = TRAINED_MODEL_FILE_NAME

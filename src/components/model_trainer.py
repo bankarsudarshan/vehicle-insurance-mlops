@@ -86,7 +86,7 @@ class ModelTrainer:
                 raise Exception("No model found with score above the base score")
 
             logging.info("Saving new model as performace is better than previous one")
-            my_model = MyModel(preprocessing_object=preprocessing_obj, trained_model_object=trained_model)
+            my_model = MyModel(preprocessing_obj, trained_model, metrics_artifact)
             save_object(self.model_trainer_config.trained_model_file_path, my_model)
             logging.info("Saved final model object that includes both preprocessing and the trained model")
 

@@ -13,3 +13,6 @@ model_trainer:
     criterion: 'entropy'
     random_state: 42
   expected_score: 0.6
+
+model_evaluation:
+  changed_threshold_score: 0.021

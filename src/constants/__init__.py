@@ -4,6 +4,7 @@ import os
 PIPELINE_NAME: str = ""
 ARTIFACTS_DIR: str = "artifacts"
 MONGODB_URL_KEY = "MONGODB_URL"
+AWS_REGION_NAME = "eu-north-1"
 
 """
 Data Ingestion related constants
@@ -37,4 +38,10 @@ Model Trainer related constants
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
-TRAINED_MODEL_NAME: str = "model.pkl"
+TRAINED_MODEL_FILE_NAME: str = "model.pkl"
+
+"""
+MODEL Evaluation related constants
+"""
+MODEL_BUCKET_NAME = "vehicle-insurance-final-model"
+MODEL_PUSHER_S3_KEY = "model-registry"

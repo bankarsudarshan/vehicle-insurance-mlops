@@ -4,6 +4,7 @@ import pandas as pd
 from pandas import DataFrame
 from sklearn.pipeline import Pipeline
 
+from src.entity.artifact_entity import ClassificationMetricArtifact
 from src.exception import MyException
 from src.logger import logging
 
@@ -18,13 +19,14 @@ class TargetValueMapping:
         return dict(zip(mapping_response.values(),mapping_response.keys()))
 
 class MyModel:
-    def __init__(self, preprocessing_object: Pipeline, trained_model_object: object):
+    def __init__(self, preprocessing_object: Pipeline, trained_model_object: object, metrics_artifact):
         """
         :param preprocessing_object: Input Object of preprocesser
         :param trained_model_object: Input Object of trained model 
         """
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
+        self.metrics_artifact: ClassificationMetricArtifact = metrics_artifact
 
     def predict(self, dataframe: pd.DataFrame) -> DataFrame:
         """
