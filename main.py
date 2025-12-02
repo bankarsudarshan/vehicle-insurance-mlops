@@ -1,12 +1,13 @@
 import sys
 from src.pipeline.training_pipeline import TrainPipeline
 from src.logger import logging
-
+from src.utils.main_utils import load_object
 from src.entity.artifact_entity import (
     DataIngestionArtifact,
     DataValidationArtifact,
     DataTransformationArtifact,
-    ModelTrainerArtifact, ClassificationMetricArtifact,
+    ModelTrainerArtifact,
+    ModelEvaluationArtifact,
 )
 
 if __name__ == "__main__":
@@ -63,9 +64,12 @@ if __name__ == "__main__":
                 train_file_path='artifacts/data_ingestion/ingested/train.csv',
                 test_file_path='artifacts/data_ingestion/ingested/test.csv',
             )
+            trained_model_file_path = 'artifacts/model_trainer/trained_model/model.pkl'
+            models_plus_metrics = load_object(trained_model_file_path)
+            metrics_artifact = models_plus_metrics.metrics_artifact
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path='artifacts/model_trainer/trained_model/model.pkl',
-                metrics_artifact='ye matter nahi karna chhiye. DEKHTE HAI RUN HOTA HAI KI NAHI',
+                metrics_artifact=metrics_artifact,
             )
             
             logging.info(f">>>>>> Stage {stage_name} started <<<<<<")
@@ -73,6 +77,13 @@ if __name__ == "__main__":
                 data_ingestion_artifact,
                 model_trainer_artifact
             )
+            logging.info(f">>>>>> Stage {stage_name} completed <<<<<<\n\nx==========x")
+
+        elif stage_name == 'model_pusher':
+            model_evaluation_artifact = load_object('artifacts/model_evaluation/model_evaluation_report.pkl')
+            
+            logging.info(f">>>>>> Stage {stage_name} started <<<<<<")
+            model_pusher_artifact = pipeline.start_model_pusher(model_evaluation_artifact)
             logging.info(f">>>>>> Stage {stage_name} completed <<<<<<\n\nx==========x")
 
     except Exception as e:

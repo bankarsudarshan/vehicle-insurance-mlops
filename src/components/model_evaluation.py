@@ -110,7 +110,7 @@ class ModelEvaluation:
 
             trained_model: MyModel = load_object(file_path=self.model_trainer_artifact.trained_model_file_path)
             logging.info("Trained model loaded/exists.")
-            trained_model_f1_score = trained_model.metrics_artifact.f1_score
+            trained_model_f1_score = self.model_trainer_artifact.metrics_artifact.f1_score
             logging.info(f"F1_Score for this model: {trained_model_f1_score}")
 
             best_model_f1_score=None

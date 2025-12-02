@@ -128,8 +128,8 @@ stages:
       size: 5983
     - path: src/components/model_evaluation.py
       hash: md5
-      md5: 3f4170c7e6dbf0ca89edac2809c384e0
-      size: 6768
+      md5: d0743525be8ddbbc15b5ae00094c75af
+      size: 6782
     - path: src/components/model_trainer.py
       hash: md5
       md5: 68d74630d6c2ee06f75cd5e93c8cb428
@@ -142,3 +142,30 @@ stages:
       hash: md5
       md5: 82c4c6debd58d9c5172a576fedeef86d
       size: 225
+  model_pusher:
+    cmd: python main.py model_pusher
+    deps:
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: ad47e40f824fd96803a41cf66ccaa933
+      size: 4121
+    - path: src/components/data_transformation.py
+      hash: md5
+      md5: c447e01ad84596dc1bf057dbb9bd6f6c
+      size: 8646
+    - path: src/components/data_validation.py
+      hash: md5
+      md5: e5bbd8cb7cf8118c0bfd06a33c3d2049
+      size: 5983
+    - path: src/components/model_evaluation.py
+      hash: md5
+      md5: d0743525be8ddbbc15b5ae00094c75af
+      size: 6782
+    - path: src/components/model_pusher.py
+      hash: md5
+      md5: 9e4fb20af71272b2441116544ebc9b4a
+      size: 2258
+    - path: src/components/model_trainer.py
+      hash: md5
+      md5: 68d74630d6c2ee06f75cd5e93c8cb428
+      size: 4693

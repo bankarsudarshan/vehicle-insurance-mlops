@@ -258,7 +258,7 @@ class ModelS3(SimpleStorageService):
         except Exception as e:
             raise MyException(e, sys) from e
 
-    def save_model(self,from_file,remove:bool=False)->None:
+    def save_model(self, from_file, remove:bool=False)->None:
         """
         Save the model to the model_path
         :param from_file: Your local system model path
