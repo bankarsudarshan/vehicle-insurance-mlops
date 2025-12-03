@@ -1,0 +1,13 @@
+artifacts
+.venv
+.gitignore
+logs
+template.py
+LICENSE
+notebooks
+README.md
+main.py
+projectflow.txt
+.dvc/cache/
+.dvc/tmp/
+*.dvc
