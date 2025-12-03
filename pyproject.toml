@@ -25,3 +25,6 @@ build-backend = "hatchling.build"
 include = [
   "src/**",
 ]
+
+=============================================================================================================================
+1. adding this line so that github pulls and starts the docker image
