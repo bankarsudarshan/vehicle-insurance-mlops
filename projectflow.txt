@@ -154,3 +154,7 @@ component
 pipeline
 dvc.yaml
 main.py
+
+
+=============================================================================================================================
+1. adding this line so that github pulls and starts the docker image
